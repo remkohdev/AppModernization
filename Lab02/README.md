@@ -4,7 +4,9 @@ Once you have registered your account, you will by default have access to a `Lit
 
 To extend access to enterprise services and usage, and to add users to your organization, follow the instructions below.
 
-## Add Admin User
+## Using Cloud Foundry
+
+### Add an Admin
 
 * Go to Manage > Access (IAM)
 * Click `Users` window,
@@ -22,9 +24,36 @@ To extend access to enterprise services and usage, and to add users to your orga
 
 The new Admin user, should now be able to login and select the organization he has been added to as an admin. 
 
-## Create a Resource Group
+### Create a Resource Group
 
-## Create an Access Policy
+* Login as an Admin user to the organization,
+* Go to Manage > Account > Resource groups
+* You should see a `Default` resource group already present,
+* Click the `Create +` button,
+* 
+
+### Create an Access Policy
+
+
+
+## Using IAM 
+
+### Add an Admin
+
+* Go to Manage > Access (IAM)
+* Click `Users` window,
+* Click `Invite users`,
+* Enter the email address of the admin user,
+* Click the drop down to `Assign users additional access`,
+* Select the `IAM services` window,
+* In the option `What type of access do you want to assign?`, select the value `All Identity and Access enabled services`, and select `All resource groups` for the following `in` option,
+* In the option `Region` select the value `All regions`,
+* Under `Platform access` select all access policies: `Viewer`, `Operator`, `Editor`, and `Administrator`,
+* Under `Service access` select all access policies: `Reader`, `Writer` and `Manager`,
+* Under `Resource group access` select all access policies: `Viewer`, `Operator`, `Editor`, and `Administrator`,
+* Click the `Add +` button, 
+* In the right margin of the window, click the `Invite` button,
+
 
 ## Add Users
 
