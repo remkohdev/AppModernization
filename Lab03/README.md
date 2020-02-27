@@ -30,6 +30,13 @@ Set the kubectl config context,
 $ eval $(ibmcloud ks cluster config --cluster "${CLUSTER_NAME}" --export)
 ```
 
+Test your connection,
+
+```
+$ kubectl version --short
+$ kubectl config current-context
+```
+
 ## Local Terminal
 
 If you are using a local machine with a terminal and browser follow these instructions. If you are using a web terminal in a browser, jump to the instructions for Web Terminal.
