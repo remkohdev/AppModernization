@@ -1,8 +1,10 @@
 # Setup Access
 
-Once you have registered your account, you will by default have access to a `Lite` account under a personal organization, which gives you access to free services and usage. 
+This setup instruction is for Account Owners or Account Administrators. If you are not an account owner or administrator, skip this setup.
 
-To extend access to enterprise services and usage, and to add users to your organization, follow the instructions below.
+Once a user has registered an account, they will by default have access to a `Lite` account under a personal organization, which gives them access to free services and usage. 
+
+To upgrade a `Lite` account to a Pay-as-you-Go account, with `credits` to enterprise services and usage, and to add access groups with users to an organization, follow the instructions below.
 
 ## Using Cloud Foundry
 
