@@ -4,7 +4,7 @@ This Application Modernization workshop uses Open Source technologies. The instr
 
 1. Welcome and setup:
    1. Register, see [Lab01](Lab01/README.md),
-   2. Setup Acces, see [Lab02](Lab02/README.md),
+   2. (Skip) Admin Setup, see [Lab02](Lab02/README.md),
    3. Get Started, see [Lab03](Lab03/README.md),
 2. Docker101, see https://github.com/remkohdev/docker101,
 3. ==coffee break==
