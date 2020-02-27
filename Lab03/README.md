@@ -2,7 +2,7 @@
 
 ## Get Started Email
 
-In preparation for the workshop, each participant also received a `Getting Started` email with information needed to run this workshop and unique for each participant including:
+In preparation for the workshop, each participant may have received a `Getting Started` email with information to setup and get started for the workshop. This information may have included:
 
 * Your Web Terminal URL,
 * Your IKS Cluster Name,
@@ -14,27 +14,58 @@ In addition, you need your IBM Cloud credentials to be able to login:
 
 # Login to IBM Cloud
 
+To login and configure your connection,
+```
+$ IBM_USERID=<your IBMCloud ID> IBM_PASSWORD='<IBMCloud Password>' IBM_CFAPI=https://api.us-south.cf.cloud.ibm.com IBM_ORG="<org name>" CLUSTER_NAME=<org name>iksuser<user number>  ES_SVC_NAME=<org name>esuser<user number> REGION=us-south ZONE=dal10 SPACE=dev ACCOUNTID=<account id>
+$ ibmcloud login -u $IBM_USERID -p $IBM_PASSWORD -c $ACCOUNTID -r $REGION -o "${IBM_ORG}" -s $SPACE
+```
+
+Configure the Resource Group for completion,
+```
+$ ibmcloud target -g default
+```
+
+Set the kubectl config context,
+```
+$ eval $(ibmcloud ks cluster config --cluster "${CLUSTER_NAME}" --export)
+```
+
+## Local Terminal
+
+If you are using a local machine with a terminal and browser follow these instructions. If you are using a web terminal in a browser, jump to the instructions for Web Terminal.
+
+1. Open a Browser and follow the installation instructions for IBM Cloud CLI and Developer Tools at https://cloud.ibm.com/docs/cli?topic=cloud-cli-getting-started,
+2. You should now have Git, Docker, Helm, kubectl, curl and several IBM Cloud CLI plugins. Test your installation,
+
+```
+$ ibmcloud -v
+$ ibmcloud plugin list
+```
+
+3. Install the Event Streams plugin, detailed instructins are at https://cloud.ibm.com/docs/services/EventStreams?topic=eventstreams-cli#step5_es_cli
+
+```
+$ ibmcloud plugin install event-streams
+$ ibmcloud plugin list
+```
+
+4. Download the binaries of the Kafka distribution, which includes console tools used in the labs,
+5. Install Istio,
+6. Some steps in the labs use Node.js or Java and the Spring Framework. You can choose to install these or audit these sections of the labs,
+
+Optional: If you're interested what detailed tools are needed to cover all steps in all the Application Modernization labs, you could review the Web Terminal's Dockerfile at https://github.com/remkohdev/web-terminal/blob/master/bin/web-terminal-clusters-setup/Dockerfile-ttyd-iks-labs.
+
+## Web Terminal 
+
+If you are using a web-terminal for the workshop use these instructions.
+
 1. Open a browser and load your unique `Web Terminal URL` assigned to you,
-2. Define the following environment variables used in this workshop. Set the actual values assigned to you.
 
-	* IBM_RG=<your-workshop-id> 
-	* IBM_USERID=<your-ibm-id> 
-	* IBM_PASSWORD='<your-ibm-password>' 
-	* IBM_CFAPI=https://api.ng.bluemix.net 
-	* IBM_ORG=<your-ibm-org> 
-	* CLUSTER_NAME=<your-iks-cluster-name> 
-	* ES_SVC_NAME=<your-eventstreams-service-name> 
-	* REGION=<your-region> 
-	* ZONE=<your-zone> 
-	* ACCOUNTID=<your-account-id>
+2. Run setting the environment variables from the web-terminal,
 
-
-3. I recommend to open a 'notes.txt' or 'notes.md' file on your Desktop or working directory, to track the settings. You might loose connection to the web terminal or the web terminal, being a stateless container, might restart or session timeout and your will loose the settings. This will help you simply copy-paste to reset your environment.
-
-4. Run setting the environment variables from the web-terminal,
-
-	```console
-	$ IBM_RG=<your-workshop-id> IBM_USERID=<your-ibm-id> IBM_PASSWORD='<your-ibm-password>' IBM_CFAPI=https://api.us-east.cf.cloud.ibm.com IBM_ORG=<your-ibm-org> CLUSTER_NAME=<your-iks-cluster-name> ES_SVC_NAME=<your-eventstreams-service-name> REGION=us-east ZONE=wdc04 ACCOUNTID=<your-account-id>
+	```
+	$ IBM_USERID=<your IBMCloud ID> IBM_PASSWORD='<IBMCloud Password>' IBM_CFAPI=https://api.us-south.cf.cloud.ibm.com IBM_ORG="<org name>" CLUSTER_NAME=<org name>iksuser<user number>  ES_SVC_NAME=<org name>esuser<user number> REGION=us-south ZONE=dal10 SPACE=dev ACCOUNTID=<account id>
+	$ ibmcloud login -u $IBM_USERID -p $IBM_PASSWORD -c $ACCOUNTID -r $REGION -o "${IBM_ORG}" -s $SPACE
 	```
 
 	for region `us-east`, use:
@@ -42,7 +73,7 @@ In addition, you need your IBM Cloud credentials to be able to login:
 	ZONE=wdc04
 
 	for region `us-south` use:
-	IBM_CFAPI=https://api.ng.bluemix.net
+	IBM_CFAPI=https://api.us-south.cf.cloud.ibm.com
 	ZONE=dal10
 
 	ACCOUNTID and other will be provided in webex chat or slack, or other workshop chat channel, if not already distributed via email.
@@ -52,12 +83,17 @@ In addition, you need your IBM Cloud credentials to be able to login:
 5. Login to IBM Cloud, 
 
 	```
-	$ ibmcloud login -a cloud.ibm.com -r $REGION -g $IBM_RG -u $IBM_USERID -p "${IBM_PASSWORD}" -c $ACCOUNTID
+	$ ibmcloud login -u $IBM_USERID -p $IBM_PASSWORD -c $ACCOUNTID -r $REGION -o "${IBM_ORG}" -s $SPACE
 	$ ibmcloud target --cf-api "${IBM_CFAPI}" 
 	```
 
 * Download the configuration for your cluster
 
+	```
+	$ eval $(ibmcloud ks cluster config --cluster "${CLUSTER_NAME}" --export)
+	```
+
+	Which is shorthand for 
 	```
 	$ ibmcloud ks cluster config --cluster "${CLUSTER_NAME}"
 	OK
