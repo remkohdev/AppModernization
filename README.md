@@ -12,10 +12,8 @@ This Application Modernization workshop uses Open Source technologies. The instr
 5. ==lunch==
 6. Kafka101, see https://github.com/remkohdev/kafka101,
 7. ==coffee break==
-8. DevOps101, see https://github.com/remkohdev/devops101
-9. Istio101, see https://github.com/remkohdev/istio101/tree/master/labs
+8. DevOps101, tbd
+9. Istio101, demo
 10. ==recap==
 
-Other topics:
-1. Helm101, see https://github.com/remkohdev/helm101,
    
