@@ -20,7 +20,7 @@ This Application Modernization workshop uses Open Source technologies. The instr
 8. DevOps101, 
    1. Lecture: CI/CD for Microservices,
    2. Lecture: Microservices Architecture
-   3. Lab: tbd
+   3. Lab: https://github.com/remkohdev/devops101
 9.  Istio101, 
     1.  Lecture
     2.  Demo
